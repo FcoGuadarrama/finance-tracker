@@ -6,7 +6,10 @@ import { IconSettings } from '@tabler/icons-vue'
 import { IconUser } from '@tabler/icons-vue'
 import { onClickOutside } from '@vueuse/core'
 import { ref } from 'vue'
+import { Link } from '@inertiajs/vue3';
+
 const isOpen = ref(false)
+const pathName = ref(window.location.pathname)
 const profileLinks = [
   {
     icon: IconUser,
@@ -30,7 +33,7 @@ const profileLinks = [
   },
   {
     icon: IconLogout,
-    url: '/login-1',
+    url: '/logout',
     title: 'Logout'
   }
 ]
@@ -55,7 +58,9 @@ onClickOutside(target, () => (isOpen.value = false))
       </div>
       <ul class="flex flex-col w-[250px] p-2 md:p-4">
         <li v-for="item in profileLinks" :key="item.title">
-
+            <Link :href="item.url"  method="post" class="px-4 py-2.5 inline-block hover:text-primary text-sm duration-300" :class="{ 'text-primary': pathName == item.url }">
+                {{ item.title }}
+            </Link>
         </li>
       </ul>
     </div>

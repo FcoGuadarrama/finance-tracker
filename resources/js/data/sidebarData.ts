@@ -39,7 +39,7 @@ export const sidebarData = [
             },
             {
                 id: 2,
-                name: "Finance",
+                name: "Incomes",
                 icon: IconCoins,
                 submenus: [
                     { title: "analytics Dashboard", url: "/dashboards/analytics" },
@@ -49,7 +49,7 @@ export const sidebarData = [
             },
             {
                 id: 3,
-                name: "Banking",
+                name: "Expenses",
                 icon: IconBuildingBank,
                 submenus: [
                     { title: "Banking Style 01", url: "/dashboards/banking-1" },
